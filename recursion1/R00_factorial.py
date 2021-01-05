@@ -6,7 +6,6 @@ def factorial(n: int) -> int:
         return 1
     else:
         return n * factorial(n-1)
-print(factorial(6))
 
 
 class Test(TestCase):
