@@ -11,8 +11,11 @@ def bunnyEars(bunnies: int) -> int:
     bunnyEars(1) → 2
     bunnyEars(2) → 4
     """
-    pass
-
+    if bunnies == 0:
+        return 0
+    else:
+        return 2 + bunnyEars(bunnies-1)
+print(bunnyEars(8))
 
 class Test(TestCase):
     def test1(self):
