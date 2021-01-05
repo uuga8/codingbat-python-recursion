@@ -15,7 +15,6 @@ def bunnyEars(bunnies: int) -> int:
         return 0
     else:
         return 2 + bunnyEars(bunnies-1)
-print(bunnyEars(8))
 
 class Test(TestCase):
     def test1(self):
