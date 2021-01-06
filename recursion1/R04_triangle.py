@@ -12,8 +12,10 @@ def triangle(rows: int) -> int:
     triangle(1) → 1
     triangle(2) → 3
     """
-    pass
-
+    if rows == 0:
+        return 0
+    else:
+        return rows + triangle(rows-1)
 
 class Test(TestCase):
     def test1(self):
