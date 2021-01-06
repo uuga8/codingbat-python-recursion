@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 
+
 def fibonacci(n: int) -> int:
     """
     The fibonacci sequence is a famous bit of mathematics, and it happens to have a recursive definition. The first two
@@ -13,8 +14,13 @@ def fibonacci(n: int) -> int:
     fibonacci(1) → 1
     fibonacci(2) → 1
     """
-    pass
 
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
 
 class Test(TestCase):
     def test1(self):
