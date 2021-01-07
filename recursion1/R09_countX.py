@@ -10,7 +10,10 @@ def countX(s: str) -> int:
     countX("xhixhix") → 3
     countX("hi") → 0
     """
-    pass
+    if s == "":
+        return 0
+    else:
+        return (1 if s[-1] == "x" else 0) + countX(s[0: -1])
 
 
 class Test(TestCase):
