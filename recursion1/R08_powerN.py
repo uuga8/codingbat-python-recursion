@@ -12,7 +12,10 @@ def powerN(base: int, n: int) -> int:
     powerN(3, 2) → 9
     powerN(3, 3) → 27
     """
-    pass
+    if base == 1 or n == 0:
+        return 1
+    else:
+        return base * powerN(base, n-1)
 
 
 class Test(TestCase):
