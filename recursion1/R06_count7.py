@@ -12,7 +12,11 @@ def count7(n: int) -> int:
     count7(7) → 1
     count7(123) → 0
     """
-    pass
+    if n < 7:
+        return 0
+    else:
+
+        return (1 if n % 10 == 7 else 0) + count7(n // 10)
 
 
 class Test(TestCase):
