@@ -10,7 +10,7 @@ def sumDigits(n: int) -> int:
     sumDigits(49) → 13
     sumDigits(12) → 3
     """
-    if n <= 0:
+    if n == 0:
         return 0
     else:
         return int(n % 10 + sumDigits(n / 10))
