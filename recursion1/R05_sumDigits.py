@@ -1,6 +1,5 @@
 from unittest import TestCase
 
-
 def sumDigits(n: int) -> int:
     """
     Given a non-negative int n, return the sum of its digits recursively (no loops). Note that mod (%) by 10 yields the
@@ -11,7 +10,10 @@ def sumDigits(n: int) -> int:
     sumDigits(49) → 13
     sumDigits(12) → 3
     """
-    pass
+    if n <= 0:
+        return 0
+    else:
+        return int(n % 10 + sumDigits(n / 10))
 
 
 class Test(TestCase):
