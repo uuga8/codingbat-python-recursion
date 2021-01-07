@@ -13,8 +13,7 @@ def sumDigits(n: int) -> int:
     if n == 0:
         return 0
     else:
-        return int(n % 10 + sumDigits(n / 10))
-
+        return n % 10 + sumDigits(n // 10)
 
 class Test(TestCase):
     def test1(self):
