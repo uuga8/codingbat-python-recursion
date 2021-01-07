@@ -1,6 +1,7 @@
 from unittest import TestCase
 
 
+
 def count8(n: int) -> int:
     """
     Given a non-negative int n, compute recursively (no loops) the count of the occurrences of 8 as a digit, except that
@@ -12,7 +13,13 @@ def count8(n: int) -> int:
     count8(818) → 2
     count8(8818) → 4
     """
-    pass
+    if n < 8:
+        return 0
+    else:
+
+        return (1 if n % 10 == 8 else 0) + \
+               (1 if n % 10 == 8 and (n // 10) % 10 == 8 else 0) \
+               + count8(n // 10)
 
 
 class Test(TestCase):
