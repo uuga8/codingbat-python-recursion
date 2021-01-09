@@ -11,7 +11,15 @@ def changePi(s: str) -> str:
     changePi("pipi") → "3.143.14"
     changePi("pip") → "3.14p"
     """
-    pass
+    if not s:
+        return ""
+    if len(s) == 1:
+        return s[0]
+    else:
+        if s[0] == "p" and s[1] == "i":
+            return "3.14" + changePi(s[2:])
+        else:
+            return s[0] + changePi(s[1:])
 
 
 class Test(TestCase):
