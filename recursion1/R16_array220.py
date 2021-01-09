@@ -13,13 +13,9 @@ def array220(nums: List[int], index: int) -> bool:
     array220([3, 30], 0) → true
     array220([3], 0) → false
     """
-    if not nums or index == len(nums)-1:
+    if index >= len(nums) - 1:
         return False
-    else:
-        if nums[index+1] == nums[index]*10:
-            return True
-        else:
-            return array220(nums, index+1)
+    return nums[index + 1] == nums[index] * 10 or array220(nums, index + 1)
 
 
 class Test(TestCase):
