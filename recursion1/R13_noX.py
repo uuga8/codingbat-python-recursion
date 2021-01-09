@@ -10,7 +10,13 @@ def noX(s: str) -> str:
     noX("abc") → "abc"
     noX("xx") → ""
     """
-    pass
+    if not s:
+        return ""
+    else:
+        if s[0] == "x":
+            return "" + noX(s[1:])
+        else:
+            return s[0] + noX(s[1:])
 
 
 class Test(TestCase):
