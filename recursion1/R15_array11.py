@@ -13,15 +13,10 @@ def array11(nums: List[int], index: int) -> int:
     array11([11, 11], 0) → 2
     array11([1, 2, 3, 4], 0) → 0
     """
-    if not nums:
-        return 0
-    if index == len(nums):
+    if not nums or index == len(nums):
         return 0
     else:
-        if nums[index] == 11:
-            return 1 + array11(nums, index+1)
-        else:
-            return 0 + array11(nums, index+1)
+        return (1 if nums[index] == 11 else 0) + + array11(nums, index+1)
 
 
 class Test(TestCase):
