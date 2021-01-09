@@ -16,7 +16,7 @@ def array11(nums: List[int], index: int) -> int:
     if not nums or index == len(nums):
         return 0
     else:
-        return (1 if nums[index] == 11 else 0) + + array11(nums, index+1)
+        return (1 if nums[index] == 11 else 0) + array11(nums, index+1)
 
 
 class Test(TestCase):
