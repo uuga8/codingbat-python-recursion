@@ -13,7 +13,15 @@ def array6(nums: List[int], index: int) -> bool:
     array6([1, 4], 0) → false
     array6([6], 0) → true
     """
-    pass
+    if not nums:
+        return False
+    else:
+        if nums[index] == 6:
+            return True
+        elif index == len(nums)-1:
+            return False
+        else:
+            return array6(nums, index+1)
 
 
 class Test(TestCase):
