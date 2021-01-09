@@ -11,8 +11,14 @@ def changeXY(s: str) -> str:
     changeXY("xxhixx") → "yyhiyy"
     changeXY("xhixhix") → "yhiyhiy"
     """
-    pass
 
+    if not s:
+        return ""
+    else:
+        if s[0] == "x":
+            return "y" + changeXY(s[1:])
+        else:
+            return s[0] + changeXY(s[1:])
 
 class Test(TestCase):
     def test1(self):
