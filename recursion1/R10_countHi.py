@@ -10,7 +10,10 @@ def countHi(s: str) -> int:
     countHi("xhixhix") → 2
     countHi("hi") → 1
     """
-    pass
+    if not s or len(s) == 1:
+        return 0
+    else:
+        return (1 if s[-1] == "i" and s[-2] == "h" else 0) + countHi(s[0: -1])
 
 
 class Test(TestCase):
