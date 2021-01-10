@@ -11,7 +11,13 @@ def endX(s: str) -> str:
     endX("xxhixx") → "hixxxx"
     endX("xhixhix") → "hihixxx"
     """
-    pass
+    if not s:
+        return ""
+    else:
+        if s[0] == "x":
+            return endX(s[1:]) + "x"
+        else:
+            return s[0] + endX(s[1:])
 
 
 class Test(TestCase):
