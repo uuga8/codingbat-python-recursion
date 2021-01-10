@@ -11,7 +11,15 @@ def countHi2(s: str) -> int:
     countHi2("ahibhi") → 2
     countHi2("xhixhi") → 0
     """
-    pass
+    if len(s) < 2:
+        return 0
+    else:
+        if s[0: 3] == "xhi":
+            return 0 + countHi2(s[3:])
+        elif s[0: 2] == "hi":
+            return 1 + countHi2(s[2:])
+        else:
+            return 0 + countHi2(s[1:])
 
 
 class Test(TestCase):
