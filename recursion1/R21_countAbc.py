@@ -10,7 +10,10 @@ def countAbc(s: str) -> int:
     countAbc("abcxxabc") → 2
     countAbc("abaxxaba") → 2
     """
-    pass
+    if not s or len(s) < 3:
+        return 0
+    else:
+        return (1 if s[0: 3] == "aba" or s[0: 3] == "abc" else 0) + countAbc(s[1:])
 
 
 class Test(TestCase):
