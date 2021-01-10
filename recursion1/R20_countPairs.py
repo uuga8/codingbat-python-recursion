@@ -12,7 +12,10 @@ def countPairs(s: str) -> int:
     countPairs("axax") → 2
     countPairs("axbx") → 1
     """
-    pass
+    if not s or len(s) <3:
+        return 0
+    else:
+        return (1 if s[0] == s[2] else 0) + countPairs(s[1:])
 
 
 class Test(TestCase):
