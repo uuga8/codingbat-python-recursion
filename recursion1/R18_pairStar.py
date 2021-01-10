@@ -11,7 +11,12 @@ def pairStar(s: str) -> str:
     pairStar("xxyy") → "x*xy*y"
     pairStar("aaaa") → "a*a*a*a"
     """
-    pass
+    if not s:
+        return ""
+    elif len(s) == 1:
+        return s[0]
+    else:
+        return (s[0] + "*" if s[0] == s[1] else s[0]) + pairStar(s[1:])
 
 
 class Test(TestCase):
