@@ -11,7 +11,13 @@ def count11(s: str) -> int:
     count11("abc11x11x11") → 3
     count11("111") → 1
     """
-    pass
+    if len(s) < 2:
+        return 0
+    else:
+        if s[0:2] == "11":
+            return 1 + count11(s[2:])
+        else:
+            return 0 + count11(s[1:])
 
 
 class Test(TestCase):
