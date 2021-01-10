@@ -11,7 +11,13 @@ def stringClean(s: str) -> str:
     stringClean("abbbcdd") → "abcd"
     stringClean("Hello") → "Helo"
     """
-    pass
+    if len(s) < 2:
+        return s
+    else:
+        if s[0] == s[1]:
+            return stringClean(s[1:])
+        else:
+            return s[0] + stringClean(s[1:])
 
 
 class Test(TestCase):
@@ -29,3 +35,6 @@ class Test(TestCase):
 
     def test5(self):
         self.assertEqual("12ab45", stringClean("112ab445"))
+
+    def test6(self):
+        self.assertEqual("", stringClean(""))
