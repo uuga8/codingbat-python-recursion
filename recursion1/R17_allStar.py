@@ -10,7 +10,12 @@ def allStar(s: str) -> str:
     allStar("abc") → "a*b*c"
     allStar("ab") → "a*b"
     """
-    pass
+    if not s:
+        return ""
+    elif len(s) == 1:
+        return s[0]
+    else:
+        return s[0] + "*" + allStar(s[1:])
 
 
 class Test(TestCase):
