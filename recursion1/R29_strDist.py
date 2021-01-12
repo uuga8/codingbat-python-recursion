@@ -11,7 +11,17 @@ def strDist(s: str, sub: str) -> int:
     strDist("catcowcat", "cow") → 3
     strDist("cccatcowcatxx", "cat") → 9
     """
-    pass
+    if len(s) < len(sub):
+        return 0
+    else:
+        if s[0: len(sub)] == sub and s[-len(sub):] == sub:
+            return len(s)
+        elif s[0: len(sub)] == sub and s[-len(sub):] != sub:
+            return strDist(s[0: -1], sub)
+        elif s[0: len(sub)] != sub and s[-len(sub):] == sub:
+            return strDist(s[1:], sub)
+        else:
+            return strDist(s[1: -1], sub)
 
 
 class Test(TestCase):
