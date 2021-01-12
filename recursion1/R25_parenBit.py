@@ -11,7 +11,14 @@ def parenBit(s: str) -> str:
     parenBit("x(hello)") → "(hello)"
     parenBit("(xy)1") → "(xy)"
     """
-    pass
+
+    if len(s) < 2:
+        return ""
+    else:
+        if s[0] == "(":
+            return s[0] + s[1: s.find(")")+1]
+        else:
+            return parenBit(s[1:])
 
 
 class Test(TestCase):
@@ -47,3 +54,10 @@ class Test(TestCase):
 
     def test11(self):
         self.assertEqual("(not really)", parenBit("hello(not really)there"))
+
+
+
+
+
+
+
