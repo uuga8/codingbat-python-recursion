@@ -11,7 +11,13 @@ def strCopies(s: str, sub: str, n: int) -> bool:
     strCopies("catcowcat", "cow", 2) → false
     strCopies("catcowcat", "cow", 1) → true
     """
-    pass
+
+    if n == 0:
+        return True
+    if len(s) < len(sub):
+        return False
+    else:
+        return strCopies(s[1:], sub, n-1) if s[0: len(sub)] == sub else strCopies(s[1:], sub, n)
 
 
 class Test(TestCase):
