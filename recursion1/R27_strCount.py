@@ -11,7 +11,13 @@ def strCount(s: str, sub: str) -> int:
     strCount("catcowcat", "cow") → 1
     strCount("catcowcat", "dog") → 0
     """
-    pass
+    if len(s) < len(sub):
+        return 0
+    else:
+        if s[0: len(sub)] == sub:
+            return 1 + strCount(s[len(sub):], sub)
+        else:
+            return strCount(s[1:], sub)
 
 
 class Test(TestCase):
