@@ -11,7 +11,13 @@ def nestParen(s: str) -> bool:
     nestParen("((()))") → true
     nestParen("(((x))") → false
     """
-    pass
+    if len(s) == 0:
+        return True
+    else:
+        if s[0] == "(" and s[-1] == ")":
+            return nestParen(s[1: -1])
+        else:
+            return False
 
 
 class Test(TestCase):
