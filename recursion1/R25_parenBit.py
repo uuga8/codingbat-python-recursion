@@ -12,13 +12,17 @@ def parenBit(s: str) -> str:
     parenBit("(xy)1") → "(xy)"
     """
 
-    if len(s) < 2:
+    if len(s) == 0:
         return ""
     else:
-        if s[0] == "(":
-            return s[0] + s[1: s.find(")")+1]
-        else:
+        if s[0] == "(" and s[-1] == ")":
+            return s[0:]
+        elif s[0] == "(":
+            return parenBit(s[0: -1])
+        elif s[-1] == ")":
             return parenBit(s[1:])
+        else:
+            return parenBit(s[1: -1])
 
 
 class Test(TestCase):
