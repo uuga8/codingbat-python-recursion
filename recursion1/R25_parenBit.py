@@ -12,13 +12,15 @@ def parenBit(s: str) -> str:
     parenBit("(xy)1") → "(xy)"
     """
 
-    if len(s) == 0:
-        return ""
+    if not s:
+        raise ValueError("String contains no pairs of parenthesis")
+    if s == "()":
+        return "()"
     else:
         if s[0] == "(" and s[-1] == ")":
-            return s[0:]
+            return s
         elif s[0] == "(":
-            return parenBit(s[0: -1])
+            return parenBit(s[: -1])
         elif s[-1] == ")":
             return parenBit(s[1:])
         else:
@@ -58,8 +60,6 @@ class Test(TestCase):
 
     def test11(self):
         self.assertEqual("(not really)", parenBit("hello(not really)there"))
-
-
 
 
 
