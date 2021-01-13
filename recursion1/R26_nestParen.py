@@ -13,11 +13,7 @@ def nestParen(s: str) -> bool:
     """
     if len(s) == 0:
         return True
-    else:
-        if s[0] == "(" and s[-1] == ")":
-            return nestParen(s[1: -1])
-        else:
-            return False
+    return s[0] == "(" and s[-1] == ")" and nestParen(s[1: -1])
 
 
 class Test(TestCase):
