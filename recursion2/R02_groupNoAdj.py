@@ -13,7 +13,10 @@ def groupNoAdj(start: int, nums: List[int], target: int) -> bool:
     groupNoAdj(0, [2, 5, 10, 4], 14) → false
     groupNoAdj(0, [2, 5, 10, 4], 7) → false
     """
-    pass
+    if start >= len(nums):
+        return target == 0
+    else:
+        return groupNoAdj(start + 2, nums, target - nums[start]) or groupNoAdj(start + 1, nums, target)
 
 
 class Test(TestCase):
