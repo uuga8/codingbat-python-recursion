@@ -13,7 +13,13 @@ def groupSum6(start: int, nums: List[int], target: int) -> bool:
     groupSum6(0, [5, 6, 2], 9) → false
     groupSum6(0, [5, 6, 2], 7) → false
     """
-    pass
+    if start == len(nums):
+        return target == 0
+    else:
+        if nums[start] == 6:
+            return groupSum6(start + 1, nums, target - nums[start])
+        else:
+            return groupSum6(start + 1, nums, target - nums[start]) or groupSum6(start + 1, nums, target)
 
 
 class Test(TestCase):
