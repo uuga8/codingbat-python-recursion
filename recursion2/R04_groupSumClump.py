@@ -15,7 +15,18 @@ def groupSumClump(start: int, nums: List[int], target: int) -> bool:
     groupSumClump(0, [1, 2, 4, 8, 1], 14) → true
     groupSumClump(0, [2, 4, 4, 8], 14) → false
     """
-    pass
+    count = 1
+    if start >= len(nums):
+        return target == 0
+    else:
+        if start < len(nums) - 1 and nums[start] == nums[start + 1]:
+            (while start < len(nums) - 1 and nums[start] == nums[start + 1]:
+                  count += 1
+                  start += 1
+            return count)
+            return (groupSumClump(start + count, nums, target - count * nums[start]) or groupSumClump(start + count, nums, target))
+        else:
+            groupSumClump(start + 1, nums, target - nums[start]) or groupSumClump(start + 1, nums, target)
 
 
 class Test(TestCase):

@@ -16,10 +16,7 @@ def groupSum6(start: int, nums: List[int], target: int) -> bool:
     if start == len(nums):
         return target == 0
     else:
-        if nums[start] == 6:
-            return groupSum6(start + 1, nums, target - nums[start])
-        else:
-            return groupSum6(start + 1, nums, target - nums[start]) or groupSum6(start + 1, nums, target)
+        return groupSum6(start + 1, nums, target - nums[start]) or nums[start] != 6 and groupSum6(start + 1, nums, target)
 
 
 class Test(TestCase):
