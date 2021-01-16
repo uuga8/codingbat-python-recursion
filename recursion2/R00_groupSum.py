@@ -16,7 +16,11 @@ def groupSum(start: int, nums: List[int], target: int) -> bool:
     groupSum(0, [2, 4, 8], 14) → true
     groupSum(0, [2, 4, 8], 9) → false
     """
-    pass
+
+    if start == len(nums):
+        return target == 0
+    else:
+        return groupSum(start + 1, nums, target - nums[start]) or groupSum(start + 1, nums, target)
 
 
 class Test(TestCase):
