@@ -13,7 +13,16 @@ def groupSum5(start: int, nums: List[int], target: int) -> bool:
     groupSum5(0, [2, 5, 10, 4], 17) → true
     groupSum5(0, [2, 5, 10, 4], 12) → false
     """
-    pass
+    if start >= len(nums):
+        return target == 0
+    else:
+        if nums[start] % 5 == 0:
+            if start < len(nums) - 1 and nums[start + 1] == 1:
+                return groupSum5(start + 2, nums, target - nums[start])
+            else:
+                return groupSum5(start + 1, nums, target - nums[start])
+        else:
+            return groupSum5(start + 1, nums, target - nums[start]) or groupSum5(start + 1, nums, target)
 
 
 class Test(TestCase):
