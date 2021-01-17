@@ -20,13 +20,12 @@ def groupSumClump(start: int, nums: List[int], target: int) -> bool:
         return target == 0
     else:
         if start < len(nums) - 1 and nums[start] == nums[start + 1]:
-            (while start < len(nums) - 1 and nums[start] == nums[start + 1]:
-                  count += 1
-                  start += 1
-            return count)
-            return (groupSumClump(start + count, nums, target - count * nums[start]) or groupSumClump(start + count, nums, target))
+            while start < len(nums) - 1 and nums[start] == nums[start + 1]:
+                count += 1
+                start += 1
+            return groupSumClump(start + 1, nums, target - count * nums[start]) or groupSumClump(start + 1, nums, target)
         else:
-            groupSumClump(start + 1, nums, target - nums[start]) or groupSumClump(start + 1, nums, target)
+            return groupSumClump(start + 1, nums, target - nums[start]) or groupSumClump(start + 1, nums, target)
 
 
 class Test(TestCase):
