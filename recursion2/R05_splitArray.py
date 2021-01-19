@@ -1,7 +1,6 @@
 from unittest import TestCase
 from typing import List
 
-
 def splitArray(nums: List[int]) -> bool:
     """
     Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the two groups are
@@ -13,7 +12,13 @@ def splitArray(nums: List[int]) -> bool:
     splitArray([2, 3]) → false
     splitArray([5, 2, 3]) → true
     """
-    pass
+    def list_sum(nums: List[int], index: int, first_half: int, second_half: int) -> bool:
+        if index == len(nums):
+            return first_half == second_half
+        else:
+            return list_sum(nums, index + 1, first_half + nums[index], second_half) or \
+                   list_sum(nums, index + 1, first_half, second_half + nums[index])
+    return list_sum(nums, 0, 0, 0)
 
 
 class Test(TestCase):
