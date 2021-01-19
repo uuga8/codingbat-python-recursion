@@ -13,8 +13,14 @@ def split53(nums: List[int]) -> bool:
     split53([1, 1, 1]) → false
     split53([2, 4, 2]) → true
     """
-    pass
+    def threes_and_fives(nums: List[int], index: int, first_half_threes: int, second_half_fives: int) -> bool:
+        if index == len(nums):
+            return first_half_threes == second_half_fives
+        else:
+            return nums[index] % 5 != 0 and threes_and_fives(nums, index + 1, first_half_threes + nums[index], second_half_fives) or\
+                   nums[index] % 3 != 0 and threes_and_fives(nums, index + 1, first_half_threes, second_half_fives + nums[index])
 
+    return threes_and_fives(nums, 0, 0, 0)
 
 class Test(TestCase):
     def test1(self):
