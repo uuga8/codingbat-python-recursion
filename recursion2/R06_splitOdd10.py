@@ -14,13 +14,17 @@ def splitOdd10(nums: List[int]) -> bool:
     splitOdd10([5, 5, 6]) → false
     splitOdd10([5, 5, 6, 1]) → true
     """
-    def list_weird(nums: List[int], index: int, first_half: int, second_half: int) -> bool:
+
+    total = sum(nums)
+
+    def list_weird(nums: List[int], index: int, first_half: int) -> bool:
         if index == len(nums):
-            return first_half % 10 == 0 and second_half % 2 != 0 or first_half % 2 != 0 and second_half % 10 == 0
+            return first_half % 10 == 0 and (total - first_half) % 2 != 0 or first_half % 2 != 0 and (total - first_half) % 10 == 0
         else:
-            return list_weird(nums, index + 1, first_half + nums[index], second_half) or \
-                   list_weird(nums, index + 1, first_half, second_half + nums[index])
-    return list_weird(nums, 0, 0, 0)
+            return list_weird(nums, index + 1, first_half + nums[index]) or \
+                   list_weird(nums, index + 1, first_half)
+
+    return list_weird(nums, 0, 0)
 
 
 class Test(TestCase):
