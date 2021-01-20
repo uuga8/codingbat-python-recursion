@@ -12,13 +12,17 @@ def splitArray(nums: List[int]) -> bool:
     splitArray([2, 3]) → false
     splitArray([5, 2, 3]) → true
     """
-    def list_sum(nums: List[int], index: int, first_half: int, second_half: int) -> bool:
+
+    total = sum(nums)
+
+    def list_sum(nums: List[int], index: int, first_half: int) -> bool:
         if index == len(nums):
-            return first_half == second_half
+            return first_half == total - first_half
         else:
-            return list_sum(nums, index + 1, first_half + nums[index], second_half) or \
-                   list_sum(nums, index + 1, first_half, second_half + nums[index])
-    return list_sum(nums, 0, 0, 0)
+            return list_sum(nums, index + 1, first_half + nums[index]) or \
+                   list_sum(nums, index + 1, first_half)
+
+    return total % 2 == 0 and list_sum(nums, index=0, first_half=0)
 
 
 class Test(TestCase):
